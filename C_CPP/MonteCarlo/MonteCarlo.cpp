@@ -34,17 +34,17 @@ int main() {
 
 double monteCarlo(double (*f)(double x), double lb, double hb, double height, double epsilon, unsigned long minIterations) {
 	unsigned long points = 0, pointsInside = 0; // Counters for total points and points inside area
-	double area[2] = {(hb -lb)* height, -(hb-lb)*height}; // Array for the current area and the last area
+	double area[3] = {0, 0, (hb -lb) * height}; // Array for the current area, the last area and the rectangular area enclosed by hb, lb and height
 	do {
-		// Generate Random y, compare with f(random(x)) and decide if point inside or outside area
-		if(((double)rand() / RAND_MAX * height) <= f((double)rand() / RAND_MAX * (hb - lb) + lb) ) pointsInside++;
+		// Generate random y, compare with f(random(x)) and decide if point inside or outside area, count if point is inisde
+		pointsInside = (((double)rand() / RAND_MAX * height) <= f((double)rand() / RAND_MAX * (hb - lb) + lb)) ? pointsInside + 1 : pointsInside;
 		// Assign new area, increase total points, compare last and new area, leave loop if areas differ in less than epsilon and more points than minIteration are computed
-	} while(fabs( area[(points+1)%2] - ( area[points%2] = (double)pointsInside/++points * (hb - lb) * height) ) > epsilon || points < minIterations );
+	} while(fabs( area[(points+1)%2] - ( area[points%2] = (double)pointsInside/++points * area[2]) ) > epsilon || points < minIterations );
 	
 	return area[points%2];
 }
 
-// Kreis
+// Circle
 double f(double x) {
   return sqrt(1.0 - x * x);
 }
