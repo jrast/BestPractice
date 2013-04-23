@@ -1,6 +1,7 @@
 ## C++ implementation des Monte-Carlo Algorithmus
 
-Dieses kleine C++-Programm ist ganz nützlich falls man mal Pi irgendwo braucht und es gerade nicht zur Hand hat.
+Mit dem Monte-Carlo Algorithmus lassen sich Flächen von komplizierten funktionen einfach berechnen. Im Beispiel hier
+wird der Algorithmus dazu verwendet um Pi zu berechen.
 
 Details zum Algorithmus: http://en.wikipedia.org/wiki/Monte_Carlo_method
 
