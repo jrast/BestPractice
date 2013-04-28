@@ -1,4 +1,4 @@
-## Eine Bashimplemntierung des beliebten Geselschaftsspiel 
+## Eine Bash implementierung des beliebten Geselschaftsspiels
 
 Den mutigen gehört die Welt
 
@@ -6,5 +6,5 @@ Den mutigen gehört die Welt
 
 ```shell
 chmod 777 roulette.sh
-su ./roulette.sh
+su root ./roulette.sh
 ```
